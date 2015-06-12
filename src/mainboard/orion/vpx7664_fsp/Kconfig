@@ -1,0 +1,49 @@
+if BOARD_ORION_VPX7664_FSP
+
+config BOARD_SPECIFIC_OPTIONS # dummy
+	def_bool y
+	select ARCH_X86
+	select NORTHBRIDGE_INTEL_FSP_HASWELL
+	select SOUTHBRIDGE_INTEL_LYNXPOINT
+	select BOARD_ROMSIZE_KB_8192
+	select HAVE_ACPI_TABLES
+	select HAVE_OPTION_TABLE
+	select HAVE_SMI_HANDLER
+	select INTEL_INT15
+
+config MAINBOARD_DIR
+	string
+	default orion/vpx7664_fsp
+
+config MAINBOARD_PART_NUMBER
+	string
+	default "VPX7664"
+
+config MMCONF_BASE_ADDRESS
+	hex
+	default 0xf0000000
+
+config IRQ_SLOT_COUNT
+	int
+	default 18
+
+config MAX_CPUS
+	int
+	default 16
+
+config UDELAY_LAPIC_FIXED_FSB
+	int
+	default 100
+
+config VGA_BIOS_FILE
+	string
+	default "3rdparty/mainboard/$(MAINBOARDDIR)/vbios.rom"
+
+config FSP_FILE
+	default "3rdparty/mainboard/$(MAINBOARDDIR)/vpx7664_fsp-2014-12-16.bin"
+
+config MAINBOARD_POWER_ON_AFTER_POWER_FAIL
+	bool
+	default y
+
+endif # BOARD_INTEL_VPX7664

@@ -1,0 +1,2 @@
+config BOARD_ORION_VPX7664_FSP
+	bool "VPX7664 Haswell FSP"
